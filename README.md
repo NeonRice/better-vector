@@ -126,7 +126,7 @@ Reallocations
 ### Conclusions:
 - Reallocation count is by far smaller on rice::vector comparted to *std::vector*.
 
-##  Speed comparson in students-copy v2.2
+##  Speed comparson in [students-copy v2.2](https://github.com/NeonRice/students-copy)
 The following tests were done with the optimization flag on.
 
 **Reading 10 000 000 entries**
