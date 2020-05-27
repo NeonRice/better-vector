@@ -88,8 +88,8 @@ namespace rice
 
         template <class... Args>
         iterator emplace(const_iterator, Args &&...);
-        iterator insert(const_iterator, const T &);
-        iterator insert(const_iterator, T &&);
+        iterator insert(const_iterator, const T &el = T());
+        iterator insert(const_iterator, T &&el = T());
         iterator insert(const_iterator, size_type, const T &);
         template <class InputIt>
         iterator insert(const_iterator, InputIt, InputIt);
@@ -128,7 +128,7 @@ namespace rice
     }
 
     template <typename T>
-    vector<T>::vector(vector<T>::size_type n, const T &value = T())
+    vector<T>::vector(vector<T>::size_type n, const T &value)
     {
         grow_allocate(n);
         std::uninitialized_fill(buffer, buffer + n, value);
@@ -544,7 +544,7 @@ namespace rice
     }
 
     template <typename T>
-    typename vector<T>::iterator vector<T>::insert(const_iterator pos, const T &val = T())
+    typename vector<T>::iterator vector<T>::insert(const_iterator pos, const T &val)
     {
         size_type index = pos - buffer;
         if (vec_sz == cap_sz)
@@ -559,7 +559,7 @@ namespace rice
     }
 
     template <typename T>
-    typename vector<T>::iterator vector<T>::insert(const_iterator pos, T &&val = T())
+    typename vector<T>::iterator vector<T>::insert(const_iterator pos, T &&val)
     {
         size_type index = pos - buffer;
         if (vec_sz == cap_sz)
